@@ -38,7 +38,7 @@ const Posts = () => {
     { title: "Primeiro Post" },
     { title: "Segundo Post talvez" },
   ]);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState("ativo");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -76,7 +76,6 @@ const Posts = () => {
 
   const updatePost = async (e) => {
     e.preventDefault();
-    console.log("status ", status);
     setLoading(true);
     await api
       .put(`posts/${id}`, {
